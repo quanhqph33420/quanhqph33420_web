@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    DATA1 = [5, 2, 4, 1, 15, 8, 3];
+    DATA2 = [16, 6, 10, 5, 6, 1, 4];
+    calcAverageHumanAge(DATA1);
+    function calcAverageHumanAge(data) {
+      var newArr = [];
+      data.map((e, i) => {
+        var age = 0;
+        e <= 2 ? (age = e * 2) : (age = 16 + e * 4);
+        age >= 18 ? newArr.push(age) : console.log();
+        console.log(`Dog ${i} - ${e}: ${age}`);
+      });
+      console.log(newArr);
+    }
+  </script>
+</html>

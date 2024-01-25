@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const dogs = [
+      { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+      { weight: 8, curFood: 200, owners: ["Matilda"] },
+      { weight: 13, curFood: 275, owners: ["Sarah", "John"] },
+      { weight: 32, curFood: 340, owners: ["Michael"] },
+    ];
+    dogs.forEach((e) => {
+      const recommendedFood = Math.ceil(e.weight ** 0.75 * 28);
+      e.recommended = recommendedFood;
+    });
+    console.log(dogs);
+    dogs.forEach((e) => {
+      if (e.owners.includes("Sarah")) {
+        console.log("Dog of Sarah:", e);
+        if (e.curFood < (e.recommended += e.recommended * 0.1)) {
+          console.log("Hợp lí");
+        } else console.log("Quá rồi");
+      }
+    });
+    var ownersEatTooMuch = [];
+    var ownersEatTooLittle = [];
+    dogs.forEach((e) => {
+      if (e.curFood < (e.recommended += e.recommended * 0.1)) {
+        ownersEatTooLittle.push(e.owners);
+      } else ownersEatTooMuch.push(e.owners);
+    });
+    ownersEatTooLittle.forEach((e) => {
+      console.log(e + "dogs eat little!");
+    });
+    ownersEatTooMuch.forEach((e) => {
+      console.log(e + "dogs eat too much!");
+    });
+    dogs.map((e, i) => {
+      if (e.curFood == e.recommended) {
+        console.log(true);
+      } else {
+        console.log(false);
+      }
+    });
+    dogs.forEach((e) => {
+      if (e.curFood < (e.recommended += e.recommended * 0.1)) {
+        console.log(e);
+        console.log(true);
+      } else console.log(false);
+    });
+    const sortDog = dogs.sort(function (a, b) {
+      return a.recommended - b.recommended;
+    });
+    console.log(sortDog);
+  </script>
+</html>

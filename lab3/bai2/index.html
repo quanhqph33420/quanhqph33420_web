@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const data1 = {
+      Julia: [3, 5, 2, 12, 7],
+      Kate: [4, 1, 15, 8, 3],
+    };
+    const data2 = {
+      Julia: [9, 16, 6, 8, 3],
+      Kate: [10, 5, 6, 1, 4],
+    };
+
+    console.log("DATA 1");
+    checkDogs(data1.Julia, data1.Kate);
+    console.log("DATA 2");
+    checkDogs(data2.Julia, data2.Kate);
+
+    function checkDogs(dogJulia, dogKate) {
+      const newarr = dogJulia.slice(2);
+      const newArr = newarr.slice(0, newarr.length - 2);
+      const resultArr = [...newArr, ...dogKate];
+      console.log(resultArr);
+
+      resultArr.map((e, i) => {
+        e >= 3
+          ? console.log(`Chó số ${i} là chó lớn và ${e} tuổi`)
+          : console.log(`Chó số ${i} vẫn là chó con :3`);
+      });
+    }
+  </script>
+</html>
